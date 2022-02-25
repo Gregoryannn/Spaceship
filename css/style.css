@@ -80,6 +80,7 @@ body {
 }
 
 .spaceship {
+    position: fixed;
     width: var(--size-unit);
     height: var(--size-unit);
     background-image: url('../images/ship.png');
@@ -105,6 +106,7 @@ body {
     height: var(--size-unit);
     background-image: url('../images/explosion.png');
     animation: move-17-units-x var(--explosions-animation-time) steps(17) infinite;
+    animation: move-17-units-x var(--explosions-animation-time) steps(17) forwards;
 }
 
 .explosion--big {
@@ -112,6 +114,7 @@ body {
     height: calc(var(--size-unit) * 2);
     background-image: url('../images/explosion-big.png');
     animation: move-34-units-x var(--explosions-animation-time) steps(17) infinite;
+    animation: move-34-units-x var(--explosions-animation-time) steps(17) forwards;
 }
 
 .missle {
