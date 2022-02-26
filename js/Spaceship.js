@@ -1,10 +1,15 @@
-export class Spaceship {#
-    modifire = 10;#
-    leftArrow = false;#
-    rightArrow = false;
-    constructor(element) {
+import { Missile } from './Missile.js'
+
+export class Spaceship {
+
+    missiles = []# modifire = 10# leftArrow = false# rightArrow = false# spaceWidth = null
+
+    constructor(element, container) {
         this.element = element
+        this.container = container
+        this.#spaceWidth = this.element.offsetWidth
     }
+
 
     init() {
         this.#setPosition()
@@ -20,18 +25,24 @@ export class Spaceship {#
 
     #
     getPosition() {
-        return this.element.offsetLeft + this.element.offsetWidth / 2
+
+        return this.element.offsetLeft + this.#spaceWidth / 2
     }
 
     #
     eventListeners() {
         window.addEventListener('keydown', ({ keyCode }) => {
             switch (keyCode) {
+                case 32:
+                    this.#shoot()
+                    break
                 case 37:
-                    this.#leftArrow = true;
+
+                    this.#leftArrow = true
                     break
                 case 39:
-                    this.#rightArrow = true;
+
+                    this.#rightArrow = true
                     break
             }
         })
@@ -39,14 +50,17 @@ export class Spaceship {#
         window.addEventListener('keyup', ({ keyCode }) => {
             switch (keyCode) {
                 case 37:
-                    this.#leftArrow = false;
+
+                    this.#leftArrow = false
                     break
                 case 39:
-                    this.#rightArrow = false;
+
+                    this.#rightArrow = false
                     break
             }
         })
     }
+
 
     #
     gameLoop = () => {
@@ -56,12 +70,20 @@ export class Spaceship {#
 
     #
     whatKey() {
-        if (this.#leftArrow && this.#getPosition() > this.element.offsetWidth / 2) {
+
+        if (this.#leftArrow && this.#getPosition() > this.#spaceWidth / 2) {
             this.element.style.left = `${parseInt(this.element.style.left, 10) - this.#modifire}px`
         }
 
-        if (this.#rightArrow && this.#getPosition() < window.innerWidth - this.element.offsetWidth / 2) {
+        if (this.#rightArrow && this.#getPosition() < window.innerWidth - this.#spaceWidth / 2) {
             this.element.style.left = `${parseInt(this.element.style.left, 10) + this.#modifire}px`
         }
+    }
+
+    #
+    shoot() {
+        const missile = new Missile(this.#getPosition(), this.element.offsetTop, this.container)
+        missile.init()
+        this.missiles.push(missile)
     }
 }
