@@ -2,7 +2,9 @@ import { Missile } from './Missile.js'
 
 export class Spaceship {
 
-    missiles = []# modifire = 10# leftArrow = false# rightArrow = false# spaceWidth = null
+    missiles = []# modifire = 10# leftArrow = false# rightArrow = false# spaceWidth = null# shooter = 0# shootInterval = null
+
+
 
     constructor(element, container) {
         this.element = element
@@ -34,7 +36,12 @@ export class Spaceship {
         window.addEventListener('keydown', ({ keyCode }) => {
             switch (keyCode) {
                 case 32:
-                    this.#shoot()
+                    if (this.#shooter < 1) {
+                        this.#shoot()
+                        this.#shootInterval = setInterval(() => this.#shoot(), 1000)
+                        this.#shooter++
+
+                    }
                     break
                 case 37:
 
@@ -49,6 +56,10 @@ export class Spaceship {
 
         window.addEventListener('keyup', ({ keyCode }) => {
             switch (keyCode) {
+                case 32:
+                    this.#shooter = 0
+                    clearInterval(this.#shootInterval)
+                    break
                 case 37:
 
                     this.#leftArrow = false
