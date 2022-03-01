@@ -1,8 +1,8 @@
 :root {
     --primary-color: #09fcfd;
     --size-unit: 64px;
-    --ship-animation-time: .2s;
-    --explosions-animation-time: .6s;
+    --ship-animation-time: 200ms;
+    --explosions-animation-time: 600ms;
 }
 
 *,
@@ -105,6 +105,7 @@ body {
 }
 
 .explosion {
+    position: fixed;
     width: var(--size-unit);
     height: var(--size-unit);
     background-image: url('../images/explosion.png');
