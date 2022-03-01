@@ -4,8 +4,7 @@ import { Spaceship } from "./Spaceship.js"
 
 class Game {
 
-    #
-    htmlElements = {
+    #htmlElements = {
         spaceship: document.querySelector('[data-spaceship]'),
         container: document.querySelector('[data-container]'),
         lives: document.querySelector('[data-lives]'),
@@ -13,14 +12,19 @@ class Game {
     }
 
 
-    #
-    ship = new Spaceship(this.#htmlElements.spaceship, this.#htmlElements.container)# checkPositionInterval = null# enemies = []# enemiesSpeed = null
+    #ship = new Spaceship(this.#htmlElements.spaceship, this.#htmlElements.container)
 
-    # enemies = []# enemiesSpeed = null
+    #checkPositionInterval = null
+    #enemies = []
+    #enemiesSpeed = null
 
-    # lives = null# score = null
+    #enemies = []
+    #enemiesSpeed = null
+    #lives = null
+    #score = null
 
-    # checkPositionInterval = null# createEnemyInterval = null
+    #checkPositionInterval = null
+    #createEnemyInterval = null
 
 
 
@@ -29,8 +33,7 @@ class Game {
         this.#newGame()
     }
 
-    #
-    newGame() {
+    #newGame() {
         this.#enemiesSpeed = 40
         this.#lives = 3
         this.#score = 0
@@ -38,22 +41,19 @@ class Game {
         this.#checkPositionInterval = setInterval(() => this.#checkPosition(), 1)
     }
 
-    #
-    randomNewEnemy() {
+    #randomNewEnemy() {
         const randomNumber = Math.floor(Math.random() * 5) + 1
         randomNumber % 5 ? this.#createNewEnemy('enemy', 1, this.#enemiesSpeed, 'explosion') : this.#createNewEnemy('enemy--big', 3, this.#enemiesSpeed * 2, 'explosion--big')
     }
 
-    #
-    createNewEnemy(enemyType, enemyLives, enemySpeed, explosionClass) {
+    #createNewEnemy(enemyType, enemyLives, enemySpeed, explosionClass) {
         const enemy = new Enemy(this.#htmlElements.container, enemyType, enemySpeed, enemyLives, explosionClass)
         enemy.init()
         this.#enemies.push(enemy)
 
     }
 
-    #
-    checkPosition() {
+    #checkPosition() {
 
         this.#enemies.forEach((enemy, enemyIndex, enemiesArr) => {
 
@@ -100,25 +100,21 @@ class Game {
 
     }
 
-    #
-    updateScore() {
+    #updateScore() {
         this.#score++
             this.#updateScoreText()
     }
 
-    #
-    updateScoreText() {
+    #updateScoreText() {
         this.#htmlElements.score.textContent = `Score: ${this.#score}`
     }
 
-    #
-    updateLives() {
+    #updateLives() {
         this.#lives--
             this.#updateLivesText()
     }
 
-    #
-    updateLivesText() {
+    #updateLivesText() {
         this.#htmlElements.score.textContent = `Score: ${this.#lives}`
     }
 

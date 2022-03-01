@@ -2,7 +2,12 @@ import { Missile } from './Missile.js'
 
 export class Spaceship {
 
-    missiles = []# modifire = 10# leftArrow = false# rightArrow = false# spaceWidth = null# shooter = 0# shootInterval = null
+    missiles = []
+    #modifire = 10
+    #leftArrow = false
+    #rightArrow = false
+    #spaceWidth = null# shooter = 0
+    #shootInterval = null
 
 
 
@@ -19,20 +24,17 @@ export class Spaceship {
         this.#gameLoop()
     }
 
-    #
-    setPosition() {
+    #setPosition() {
         this.element.style.bottom = 0
         this.element.style.left = `${window.innerWidth / 2 - this.#getPosition()}px`
     }
 
-    #
-    getPosition() {
+    #getPosition() {
 
         return this.element.offsetLeft + this.#spaceWidth / 2
     }
 
-    #
-    eventListeners() {
+    #eventListeners() {
         window.addEventListener('keydown', ({ keyCode }) => {
             switch (keyCode) {
                 case 32:
@@ -73,14 +75,12 @@ export class Spaceship {
     }
 
 
-    #
-    gameLoop = () => {
+    #gameLoop = () => {
         this.#whatKey()
         requestAnimationFrame(this.#gameLoop)
     }
 
-    #
-    whatKey() {
+    #whatKey() {
 
         if (this.#leftArrow && this.#getPosition() > 12) {
             this.element.style.left = `${parseInt(this.element.style.left, 10) - this.#modifire}px`
@@ -91,8 +91,7 @@ export class Spaceship {
         }
     }
 
-    #
-    shoot() {
+    #shoot() {
         const missile = new Missile(this.#getPosition(), this.element.offsetTop, this.container)
         missile.init()
         this.missiles.push(missile)

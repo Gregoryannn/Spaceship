@@ -14,26 +14,22 @@ export class Enemy {
         this.#updatePosition()
     }
 
-    #
-    setEnemy() {
+    #setEnemy() {
         this.container.appendChild(this.element)
         this.element.classList.add(this.enemyClass)
         this.element.style.left = `${this.#randomPosition()}px`
         this.element.style.top = 0
     }
 
-    #
-    randomPosition() {
+    #randomPosition() {
         return Math.floor(Math.random() * (window.innerWidth - this.element.offsetWidth))
     }
 
-    #
-    updatePosition() {
+    #updatePosition() {
         this.interval = setInterval(() => this.#setNewPosition(), this.speed)
     }
 
-    #
-    setNewPosition() {
+    #setNewPosition() {
         this.element.style.top = `${this.element.offsetTop + 1}px`
     }
 
