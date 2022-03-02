@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\css",
+    "\\js"
   ],
-  "SelectedNode": "\\C:\\Users\\asus\\Source\\Repos\\Spaceship",
+  "SelectedNode": "\\js\\Game.js",
   "PreviewInSolutionExplorer": false
 }
