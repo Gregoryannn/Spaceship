@@ -117,7 +117,7 @@ class Game {
             this.#enemiesSpeed--
         }
 
-            this.#updateScoreText()
+        this.#updateScoreText()
     }
 
     #updateScoreText() {
@@ -151,7 +151,7 @@ class Game {
 
 }
 
-window.onload = function() {
+window.onload = function () {
     const game = new Game()
     game.init()
 }

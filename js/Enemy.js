@@ -35,9 +35,9 @@ export class Enemy {
 
     hit() {
         this.lives--
-            if (!this.lives) {
-                this.explode()
-            }
+        if (!this.lives) {
+            this.explode()
+        }
     }
 
     explode() {

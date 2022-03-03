@@ -72,9 +72,9 @@ body {
     transition: box-shadow .2s ease-in;
 }
 
-.modal__button:hover {
-    box-shadow: 0 0 20px 5px var(--primary-color);
-}
+    .modal__button:hover {
+        box-shadow: 0 0 20px 5px var(--primary-color);
+    }
 
 .hide {
     display: none;
@@ -138,6 +138,7 @@ body {
     from {
         background-position-x: 0;
     }
+
     to {
         background-position-x: calc(var(--size-unit) * -8);
     }
@@ -147,6 +148,7 @@ body {
     from {
         background-position-x: 0;
     }
+
     to {
         background-position-x: calc(var(--size-unit) * -16);
     }
@@ -156,6 +158,7 @@ body {
     from {
         background-position-x: 0;
     }
+
     to {
         background-position-x: calc(var(--size-unit) * -17);
     }
@@ -165,6 +168,7 @@ body {
     from {
         background-position-x: 0;
     }
+
     to {
         background-position-x: calc(var(--size-unit) * -34);
     }
@@ -174,6 +178,7 @@ body {
     from {
         background-position-x: 0;
     }
+
     to {
         background-position-x: calc(var(--size-unit) * -5);
     }
