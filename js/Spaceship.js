@@ -6,10 +6,9 @@ export class Spaceship {
     #modifire = 10
     #leftArrow = false
     #rightArrow = false
-    #spaceWidth = null# shooter = 0
+    #spaceWidth = null
+    #shooter = 0
     #shootInterval = null
-
-
 
     constructor(element, container) {
         this.element = element
@@ -30,7 +29,6 @@ export class Spaceship {
     }
 
     #getPosition() {
-
         return this.element.offsetLeft + this.#spaceWidth / 2
     }
 
@@ -42,15 +40,12 @@ export class Spaceship {
                         this.#shoot()
                         this.#shootInterval = setInterval(() => this.#shoot(), 1000)
                         this.#shooter++
-
                     }
                     break
                 case 37:
-
                     this.#leftArrow = true
                     break
                 case 39:
-
                     this.#rightArrow = true
                     break
             }
@@ -63,17 +58,14 @@ export class Spaceship {
                     clearInterval(this.#shootInterval)
                     break
                 case 37:
-
                     this.#leftArrow = false
                     break
                 case 39:
-
                     this.#rightArrow = false
                     break
             }
         })
     }
-
 
     #gameLoop = () => {
         this.#whatKey()
@@ -81,7 +73,6 @@ export class Spaceship {
     }
 
     #whatKey() {
-
         if (this.#leftArrow && this.#getPosition() > 12) {
             this.element.style.left = `${parseInt(this.element.style.left, 10) - this.#modifire}px`
         }

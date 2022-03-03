@@ -44,8 +44,9 @@ export class Enemy {
         this.element.classList.remove(this.enemyClass)
         this.element.classList.add(this.explosionClass)
         clearInterval(this.interval)
-        const animationTime = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--explosions-animation-time'), 10)
-        setTimeout(() => this.element.remove(), animationTime)
 
+        const animationTime = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--explosions-animation-time'), 10)
+
+        setTimeout(() => this.element.remove(), animationTime)
     }
 }

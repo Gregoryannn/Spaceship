@@ -1,9 +1,7 @@
-import { Enemy } from "./Enemy.js"
 import { Spaceship } from "./Spaceship.js"
-
+import { Enemy } from "./Enemy.js"
 
 class Game {
-
     #htmlElements = {
         spaceship: document.querySelector('[data-spaceship]'),
         container: document.querySelector('[data-container]'),
@@ -14,22 +12,16 @@ class Game {
         button: document.querySelector('[data-button]'),
     }
 
-
     #ship = new Spaceship(this.#htmlElements.spaceship, this.#htmlElements.container)
 
-    #checkPositionInterval = null
     #enemies = []
     #enemiesSpeed = null
 
-    #enemies = []
-    #enemiesSpeed = null
     #lives = null
     #score = null
 
     #checkPositionInterval = null
     #createEnemyInterval = null
-
-
 
     init() {
         this.#ship.init()
@@ -61,11 +53,9 @@ class Game {
         const enemy = new Enemy(this.#htmlElements.container, enemyType, enemySpeed, enemyLives, explosionClass)
         enemy.init()
         this.#enemies.push(enemy)
-
     }
 
     #checkPosition() {
-
         this.#enemies.forEach((enemy, enemyIndex, enemiesArr) => {
 
             const enemyPosition = {
@@ -106,9 +96,7 @@ class Game {
                     missileArr.splice(missileIndex, 1)
                 }
             })
-
         })
-
     }
 
     #updateScore() {
@@ -116,7 +104,6 @@ class Game {
         if (!(this.#score % 5)) {
             this.#enemiesSpeed--
         }
-
         this.#updateScoreText()
     }
 
@@ -147,8 +134,6 @@ class Game {
         clearInterval(this.#createEnemyInterval)
         clearInterval(this.#checkPositionInterval)
     }
-
-
 }
 
 window.onload = function () {
