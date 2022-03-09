@@ -22,5 +22,5 @@ I added some code improvements. I changed shoot listener. Now if you hold down a
 
 
 ## 📷 UI
-![Spaceship](![Minesweeper](https://user-images.githubusercontent.com/32854050/157410485-d84b5197-ae70-4ed1-bd93-6b5572c954bc.jpg)
+![Spaceship](https://user-images.githubusercontent.com/32854050/157478984-57b2fe6a-eec8-4c14-8b0e-1ca8c47f0f6e.jpg)
 
